@@ -1,0 +1,34 @@
+<div class="-work">
+    <div class="-title" ng-bind="$ctrl.title"></div>
+    <div class="-content">
+        <ul class="-work-list">
+            <li class="-work-item" ng-repeat="item in $ctrl.worksList track by $index">
+                <h4 class="-work-title" ng-bind="item.title"></h4>
+                <div class="-right">
+                    <p class="-time" ng-bind="item.time"></p>
+                    <p class="-post"><<span ng-bind="item.post"></span>></p>
+                    <p class="-tech">"<span ng-bind="item.tech"></span>"</p>
+                    <ul class="-list">
+                        <li class="-item"
+                            ng-class="{'-item-en':$ctrl.isEng}"
+                            ng-repeat="item in item.contentList track by $index"
+                            ng-bind="item">
+                        </li>
+                    </ul>
+                    <a class="-work-link" ng-href="{{item.url}}"><img src="img/w_link.svg" alt=""></a>
+                </div>   
+                <!-- <h4 class="-work-title" ng-bind="item.title"></h4>
+                <p class="-work-des" ng-class="{'-work-des-en':$ctrl.isEng}" ng-bind="item.des"></p>
+                 -->
+            </li>
+        </ul>
+        <!-- <div class="-work-more">
+            
+        </div> -->
+        <div class="-work-switch" switch-work>
+            <i class="-left"></i>
+            <a href="https://github.com/gdutewei" target="_blank" ng-bind="$ctrl.viewMore"></a>
+            <i class="-right"></i>
+        </div>
+    </div>
+</div>
