@@ -29,6 +29,16 @@
             audio.hidden = true
             audio.loop = true
             document.body.appendChild(audio)
+            document.body.addEventListener('touchstart', function(event){
+                var touches = event.touches.length
+                if (touches === 2 && isPlay) {
+                    audio.pause()
+                    isPlay = !isPlay
+                } else if (touches === 2 && !isPlay) {
+                    audio.play()
+                    isPlay = !isPlay
+                }
+            }, false)
             document.body.addEventListener('dblclick', function (){
                 if (isPlay) {
                     audio.pause()
